@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import axios from "axios";
 
 function App() {
   const [codeInput, setCodeInput] = useState("");
@@ -15,26 +16,29 @@ function App() {
   const handleSubmit = async () => {
     setLoading(true);
     console.log("Submitting code and question...");
-    const res = await fetch("http://localhost:5000/api/ask", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ question: textInput, code: codeInput }),
-    });
+    try {
+      const res = await axios.post("http://localhost:8000/api/ask", {
+        question: textInput,
+        code: codeInput,
+      });
 
-    const data = await res.json();
-    setResponse(data.answer || "No response");
-    setLoading(false);
+      setResponse(res.data.answer || "No response");
+    } catch (error) {
+      console.error("Error submitting data:", error);
+      setResponse("An error occurred while processing your request.");
+    } finally {
+      setLoading(false);
+    }
   };
+
 
   return (
     <div className="app">
       <header className="header">
         <h1 className="title">AI Coding Tutor</h1>
-        <button className="mode-toggle" onClick={() => setDarkMode(!darkMode)}>
+        {/* <button className="mode-toggle" onClick={() => setDarkMode(!darkMode)}>
           {darkMode ? "🌞 Light" : "🌙 Dark"}
-        </button>
+        </button> */}
       </header>
 
       <main className="main">
