@@ -34,8 +34,8 @@ body {
   position: relative;
   padding: 24px;
   border-bottom: 1px solid #ccc;
-  text-align: center;
   background-color: inherit;
+  text-align: center;
 }
 
 .title {
@@ -157,4 +157,75 @@ body {
   .submit-btn {
     width: 100%;
   }
+}
+
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  animation: loading 1s linear infinite;
+  z-index: 9999;
+}
+
+@keyframes loading {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.example-panel {
+  width: 25%;
+  max-width: 400px;
+  background-color: #1a1a1a;
+  border-left: 1px solid #444;
+  padding: 20px;
+  overflow-y: auto;
+  color: white;
+}
+
+.example {
+  background-color: #2a2a2a;
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.example:hover {
+  background-color: #333;
+}
+
+.example pre {
+  white-space: pre-wrap;
+  font-size: 0.9rem;
+  margin: 0 0 8px 0;
+}
+
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .example-panel {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #444;
+  }
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+
+.tutor-icon {
+  width: 72px;
+  height: 72px;
 }
