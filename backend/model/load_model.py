@@ -76,15 +76,3 @@ def generate_full_explanation(code: str, question: str) -> str:
     prompt = build_prompt(code, summary, question)
     explanation = generate_explanation_with_tinyllama(prompt)
     return explanation
-
-
-# code = """def factorial(n):
-#     if n == 0:
-#         return 1
-#     else:
-#         return n * factorial(n - 1)
-# """
-# question = "What does this function do and why is recursion used?"
-
-# answer = generate_full_explanation(code, question)
-# print("💡 Final Explanation:\n", answer)
