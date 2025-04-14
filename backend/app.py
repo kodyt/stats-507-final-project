@@ -3,7 +3,7 @@ from flask_cors import CORS
 from model.load_model import generate_full_explanation
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for local frontend access
+CORS(app)
 
 @app.route('/')
 def index():
@@ -11,6 +11,9 @@ def index():
 
 @app.route('/api/ask', methods=['POST'])
 def ask():
+    """
+        Endpoint to handle code and question input and return the generated answer.
+    """
     try:
         data = request.get_json()
         code = data.get('code', '')

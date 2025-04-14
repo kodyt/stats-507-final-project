@@ -1,0 +1,54 @@
+🔹 Example 1
+Code:
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+Question: What does this function do?
+Response:
+The `factorial()` function is a function that calculates the factorial of a given number. The function takes a single argument `n`, which is the number to calculate the factorial of.
+
+            If `n` is 0, the function returns 1. Otherwise, it multiplies the result of `n` with `factorial(n-1)`. This process continues until `n` becomes 1, at which point the function returns 1.
+
+            Here's a breakdown of the code:
+
+            1. The function has a conditional statement `if n == 0:` to check if `n` is 0. If it is, the function returns 1.
+
+            2. The function then multiplies the result of `n` with `factorial(n-1)`. This is because `n` will be 1 when `n` is equal to 0.
+
+            3. The function continues iterating until `n` becomes 1.
+
+            4. Finally, the function returns the result of the multiplication.
+
+            I hope that helps! Let me know if you have any further questions.
+
+======================================================================
+🔹 Example 2
+Code:
+def is_even(n):
+    return n % 2 == 0
+Question: How does this function work?
+Response:
+The `is_even` function takes an integer `n` as input and returns `True` if `n` is even and `False` if it's odd.
+
+            Here's how it works:
+
+            1. We start by checking if `n` is even using the modulo operator `%`. If it's even, the result is `True`, and if it's odd, the result is `False`.
+
+            2. We then return the result of this check using the `return` keyword.
+
+            Here's a simple example to illustrate how this function works:
+
+            ```python
+            n = 5
+            is_even = is_even(n)
+            print(is_even) # Output: True
+            ```
+
+            In this example, `n` is set to `5`, and the function returns `True`.
+
+            The `is_even` function checks if `n` is even, and if it's even, it returns `True`, and if it's odd, it returns `False`.
+
+            That's it! This function is a simple example of how we can use functions in Python
+
+======================================================================
