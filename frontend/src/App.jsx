@@ -11,6 +11,13 @@ function App() {
 
   document.body.className = "dark";
 
+  const cleanText = (text) => {
+    return text
+      .replace(/\t/g, " ")        // Convert tabs to single spaces
+      .replace(/ +/g, " ")        // Collapse multiple spaces
+      .replace(/^\s+/gm, "")      // Remove leading spaces on each line
+      .trim();                    // Trim overall text
+  };
   const handleSubmit = async () => {
     setLoading(true);
     console.log("Submitting code and question...");
@@ -66,7 +73,7 @@ function App() {
 
         <div className="output-section">
           <h2 className="response-title">AI Response</h2>
-          <pre className="response-box">{response}</pre>
+          <pre className="response-box">{cleanText(response)}</pre>
         </div>
 
         <div className="example-panel">
