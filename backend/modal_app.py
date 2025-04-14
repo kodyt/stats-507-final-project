@@ -1,16 +1,24 @@
 import modal
 
-# Create the Modal app
+# ✅ 1. Define the Modal app correctly
 app = modal.App("coding-tutor-api")
 
-# Define the image for the container
-image = modal.Image.debian_slim().pip_install(
-    "flask", "flask-cors", "torch", "transformers", "accelerate", "sentencepiece"
+# ✅ 2. Define and attach the Docker image
+image = (
+    modal.Image.debian_slim()
+    .pip_install(
+        "flask", 
+        "flask-cors", 
+        "torch", 
+        "transformers", 
+        "accelerate", 
+        "sentencepiece"
+    )
 )
 
-# The actual Flask app wrapped in Modal
-@modal.function(image=image, keep_warm=1, timeout=60)
-@modal.asgi_app()
+# ✅ 3. Use modal.Function to wrap the Flask app as a WSGI (not ASGI) app
+@app.function(image=image, min_containers=1, timeout=120)
+@modal.wsgi_app()
 def flask_app():
     from flask import Flask, request, jsonify
     from flask_cors import CORS
@@ -28,3 +36,6 @@ def flask_app():
         return jsonify({"answer": answer})
 
     return app
+
+if __name__ == "__main__":
+    app.serve()
