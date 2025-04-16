@@ -22,7 +22,7 @@ function App() {
     setLoading(true);
     console.log("Submitting code and question...");
     try {
-      const res = await axios.post("https://kodyt--tinyllama-coding-tutor-flask-app.modal.run/", {
+      const res = await axios.post("http://127.0.0.1:8000/api/ask", {
         question: textInput,
         code: codeInput,
       });
