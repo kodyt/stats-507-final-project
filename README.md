@@ -1,9 +1,5 @@
 # stats-507-final-project
 AI-Powered Code Tutoring Tool
-
-# Deployed App
-Navigate to [this link to visit the deployed project](https://aicodingtutor.vercel.app/) (https://aicodingtutor.vercel.app/)
-
 For the report on this project, [Click here](./STATS_507_Final_Project.pdf).
 
 # Run the model only
@@ -16,10 +12,25 @@ $ chmod +x run_backend_example.sh
 
 # Run the script
 $ ./run_backend_example.sh
-
 ```
 
-# Run the project locally
+# Run the project locally (Working backend and frontend)
+If you are on mac you can run the executables to run the servers:
+```
+# IF NEEDED, make the script executable
+$ chmod +x run_frontend.sh
+$ chmod +x run_backend.sh
+
+# Run the script
+$ ./run_frontend.sh
+# In another terminal, run the backend script
+$ ./run_backend.sh
+
+# Navigate to local host link given when you run the frontend script.
+```
+
+
+CLI to run locally:
 Run the backend and frontend servers in different terminals.
 ```
 # Backend
@@ -30,7 +41,10 @@ $ cd backend
 $ pip install -r requirements.txt
 $ python3 app.py
 
-# Frontend
+# Frontend (In another terminal)
 $ cd frontend
 $ npm run dev
 ```
+
+# I was unable to deploy the backend of this project for free because the models are too large. However, I deployed the frontend, but it has no functionality.
+Navigate to [this link to see the frontend](https://aicodingtutor.vercel.app/) (https://aicodingtutor.vercel.app/)

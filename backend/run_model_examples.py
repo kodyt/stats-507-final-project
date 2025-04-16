@@ -20,7 +20,7 @@ examples = [example_1, example_2]
 
 results = []
 
-print("🧠 Running model on examples...\n")
+print("Running model on examples...\n")
 
 for idx, example in enumerate(examples, 1):
     print(f"🔹 Example {idx}")
@@ -37,7 +37,7 @@ for idx, example in enumerate(examples, 1):
     print("Response:\n", explanation)
     print("\n" + "="*50 + "\n")
 
-# ✅ Save to output.txt
+# Save to output.txt
 with open("output.txt", "w") as f:
     for idx, r in enumerate(results, 1):
         f.write(f"🔹 Example {idx}\n")
@@ -46,4 +46,4 @@ with open("output.txt", "w") as f:
         f.write("Response:\n" + r["response"] + "\n")
         f.write("\n" + "="*70 + "\n")
 
-print("📁 Output saved to output.txt")
+print("Output saved to output.txt")
