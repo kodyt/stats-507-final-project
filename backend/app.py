@@ -7,6 +7,7 @@ CORS(app)
 
 @app.route('/')
 def index():
+    '''index'''
     return "🧠 AI Coding Tutor API is running!"
 
 @app.route('/api/ask', methods=['POST'])
